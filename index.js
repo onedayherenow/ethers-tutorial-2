@@ -95,5 +95,5 @@ const getCurrentMember = async () => {
     /* 6.4 Display member details in DOM */
     document.querySelector(".member-detail-name").innerText = memberName;
     document.querySelector(".member-detail-district").innerText = memberDistrict;
-    document.querySelector(".member-detail=age").innerText = memberAge;
+    document.querySelector(".member-detail-age").innerText = memberAge;
 };
