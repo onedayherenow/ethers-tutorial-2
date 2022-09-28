@@ -71,5 +71,29 @@ const setNewPet = () => {
     }); 
 };
 
-/* Function to set pet details on click of button */
+/* Function to set member details on click of button */
 setMemberButton.addEventListener("click", setNewMember);
+
+// 6. Function to get member details
+const getCurrentMember = async () => {
+    setMemberButton.value = "Getting Member..";
+
+    /* 6.1 Get member details from smart contract */
+    const member = await MemberContract.getMember();
+
+    /* 6.2 Display the member details section
+
+    6.2.1 Hide the memnber form in DOM */
+    memberSection.style.display = "block";
+    memberFormSection.style.display = "none";
+
+    /* 6.3 Member is an array of 3 strings [memberName, memberOwner, memberAge] */
+    const memberName = member[0];
+    const memberDistrict = member[1];
+    const memberAge = member[2];
+
+    /* 6.4 Display member details in DOM */
+    document.querySelector(".member-detail-name").innerText = memberName;
+    document.querySelector(".member-detail-district").innerText = memberDistrict;
+    document.querySelector(".member-detail=age").innerText = memberAge;
+};
