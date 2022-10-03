@@ -97,3 +97,22 @@ const getCurrentMember = async () => {
     document.querySelector(".member-detail-district").innerText = memberDistrict;
     document.querySelector(".member-detail-age").innerText = memberAge;
 };
+
+/* 7. Function to show the member form on click of a button */
+showMemberFormBtn.addEventListener("click", () => {
+    memberSection.style.display = "none";
+    memberFormSection.style.display = "block";
+    setMemberButton.value = "Submit";
+});
+
+
+/* 8. Function to refresh member details */
+refreshBtn.addEventListener("click", (e) => {
+    e.target.innerText = "Refreshing...";
+    getCurrentMember().then(() => {
+        e.target.innerText = "Refreshed";
+        setTimeout(() => {
+            e.target.innerText = "Refresh";
+        }, 2000);
+    });
+});
